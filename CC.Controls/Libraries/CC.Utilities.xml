@@ -1,0 +1,703 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CC.Utilities</name>
+    </assembly>
+    <members>
+        <member name="T:CC.Utilities.ConvertEx">
+            <summary>
+            A collection of conversion methods.
+            </summary>
+        </member>
+        <member name="M:CC.Utilities.ConvertEx.ColorRefToColor(System.UInt32)">
+            <summary>
+            Converts a native COLORREF to a <see cref="T:System.Drawing.Color"/>
+            </summary>
+            <param name="colorRef">The native COLORREF to convert</param>
+            <returns>A <see cref="T:System.Drawing.Color"/></returns>
+        </member>
+        <member name="M:CC.Utilities.ConvertEx.HundredthInchToTwips(System.Int32)">
+            <summary>
+            Convert between 1/100 inch (unit used by the .NET framework)
+            and twips (1/1440 inch, used by Win32 API calls)
+            </summary>
+            <param name="n">Value in 1/100 inch</param>
+            <returns>Value in twips</returns>
+        </member>
+        <member name="M:CC.Utilities.ConvertEx.InchesToPixels(System.Single,System.Single)">
+            <summary>
+            Converts inches to pixels using the supplied dpi
+            </summary>
+            <param name="length">The length of inches to convert</param>
+            <param name="dpi">The dpi value of the return value</param>
+            <returns>The number of pixels</returns>
+        </member>
+        <member name="M:CC.Utilities.ConvertEx.InchesToTwips(System.Single)">
+            <summary>
+            Converts inches to twips
+            </summary>
+            <param name="inches">The length of inches to convert</param>
+            <returns>The number of twips</returns>
+        </member>
+        <member name="M:CC.Utilities.ConvertEx.PointsToTwips(System.Single)">
+            <summary>
+            Convert points to twips
+            </summary>
+            <param name="points"></param>
+            <returns>A <see cref="T:System.Single"/> that respresents the number of twips</returns>
+        </member>
+        <member name="M:CC.Utilities.ConvertEx.PixelsToInches(System.Single,System.Single)">
+            <summary>
+            Converts pixels to inches using the supplied dpi
+            </summary>
+            <param name="length">The value of pixels to convert</param>
+            <param name="dpi">The dpi value of the length paramater</param>
+            <returns>A <see cref="T:System.Single"/> that respresents the number of inches</returns>
+        </member>
+        <member name="M:CC.Utilities.ConvertEx.TwipsToInches(System.Single)">
+            <summary>
+            Convert twips to inches
+            </summary>
+            <param name="twips">The twips value</param>
+            <returns>A <see cref="T:System.Single"/> that respresents the number of inches</returns>
+        </member>
+        <member name="M:CC.Utilities.ConvertEx.TwipsToPoints(System.Int32)">
+            <summary>
+            Convert twips to points
+            </summary>
+            <param name="twips">The twips value</param>
+            <returns>A <see cref="T:System.Single"/> that respresents the number of inches</returns>
+        </member>
+        <member name="T:CC.Utilities.ArgumentValue">
+            <summary>
+            Specifies constants that indicate the state of an <see cref="T:CC.Utilities.Argument"/>'s value property.
+            </summary>
+        </member>
+        <member name="T:CC.Utilities.Argument">
+            <summary>
+            Represents a single command line argument.
+            </summary>
+        </member>
+        <member name="M:CC.Utilities.Argument.#ctor(System.String)">
+            <summary>
+            Creates a new <see cref="T:CC.Utilities.Argument"/>.
+            </summary>
+            <param name="name">The argument name.</param>
+        </member>
+        <member name="M:CC.Utilities.Argument.#ctor(System.String,CC.Utilities.ArgumentValue)">
+            <summary>
+            Creates a new <see cref="T:CC.Utilities.Argument"/>.
+            </summary>
+            <param name="name">The argument name.</param>
+            <param name="argumentValue">The state of the argument's Value property.</param>
+        </member>
+        <member name="M:CC.Utilities.Argument.#ctor(System.String,System.Boolean)">
+            <summary>
+            Creates a new <see cref="T:CC.Utilities.Argument"/>.
+            </summary>
+            <param name="name">The argument name.</param>
+            <param name="hasPrefix">True if the <see cref="T:CC.Utilities.Argument"/> has a prefix.</param>
+        </member>
+        <member name="M:CC.Utilities.Argument.#ctor(System.String,CC.Utilities.ArgumentValue,System.Boolean)">
+            <summary>
+            Creates a new <see cref="T:CC.Utilities.Argument"/>.
+            </summary>
+            <param name="name">The argument name.</param>
+            <param name="argumentValue">The state of the argument's Value property.</param>
+            <param name="hasPrefix">True if the <see cref="T:CC.Utilities.Argument"/> has a prefix.</param>
+        </member>
+        <member name="M:CC.Utilities.Argument.#ctor(System.String,CC.Utilities.ArgumentValue,System.Boolean,System.String)">
+            <summary>
+            Creates a new <see cref="T:CC.Utilities.Argument"/>.
+            </summary>
+            <param name="name">The argument name.</param>
+            <param name="argumentValue">The state of the argument's Value property.</param>
+            <param name="hasPrefix">True if the <see cref="T:CC.Utilities.Argument"/> has a prefix.</param>
+            <param name="value">The argument value.</param>
+        </member>
+        <member name="M:CC.Utilities.Argument.Clone">
+            <summary>
+            Clones this <see cref="T:CC.Utilities.Argument"/> to a new instance.
+            </summary>
+            <returns>An <see cref="T:CC.Utilities.Argument"/></returns>
+        </member>
+        <member name="M:CC.Utilities.Argument.ToString">
+            <summary>
+            Returns this <see cref="T:CC.Utilities.Argument"/> in a human readable format.
+            </summary>
+            <returns>A <see cref="T:System.String"/>.</returns>
+        </member>
+        <member name="M:CC.Utilities.Argument.ToString(System.Boolean)">
+            <summary>
+            Returns this <see cref="T:CC.Utilities.Argument"/> in a human readable format.
+            </summary>
+            <param name="detailed">True if the output should be detailed.</param>
+            <returns>A <see cref="T:System.String"/>.</returns>
+        </member>
+        <member name="P:CC.Utilities.Argument.ArgumentValue">
+            <summary>
+            The state of the <see cref="P:CC.Utilities.Argument.Value"/> property.
+            </summary>
+        </member>
+        <member name="P:CC.Utilities.Argument.HasPrefix">
+            <summary>
+            True if the <see cref="T:CC.Utilities.Argument"/> has a prefix.
+            </summary>
+        </member>
+        <member name="P:CC.Utilities.Argument.Name">
+            <summary>
+            The name.
+            </summary>
+        </member>
+        <member name="P:CC.Utilities.Argument.IsValid">
+            <summary>
+            True if the <see cref="T:CC.Utilities.Argument"/> is valid.
+            </summary>
+        </member>
+        <member name="P:CC.Utilities.Argument.Value">
+            <summary>
+            The value.
+            </summary>
+        </member>
+        <member name="T:CC.Utilities.ControlExtensions">
+            <summary>
+            Contains extension methods for <see cref="T:System.Windows.Forms.Control"/>
+            </summary>
+        </member>
+        <member name="M:CC.Utilities.ControlExtensions.DrawToImage(System.Windows.Forms.Control)">
+            <summary>
+            Draws the <see cref="T:System.Windows.Forms.Control"/> to an <see cref="T:System.Drawing.Image"/>
+            </summary>
+            <param name="control">The <see cref="T:System.Windows.Forms.Control"/> to draw.</param>
+            <returns>An <see cref="T:System.Drawing.Image"/> of the <see cref="T:System.Windows.Forms.Control"/></returns>
+        </member>
+        <member name="T:CC.Utilities.ColorExtensions">
+            <summary>
+            Contains <see cref="T:System.Drawing.Color"/> extension methods
+            </summary>
+        </member>
+        <member name="M:CC.Utilities.ColorExtensions.Invert(System.Drawing.Color)">
+            <summary>
+            Inverts a <see cref="T:System.Drawing.Color"/>
+            </summary>
+            <param name="color">The <see cref="T:System.Drawing.Color"/> to invert</param>
+            <returns>An inverted <see cref="T:System.Drawing.Color"/></returns>
+        </member>
+        <member name="M:CC.Utilities.ColorExtensions.ToColorRef(System.Drawing.Color)">
+            <summary>
+            Converts a <see cref="T:System.Drawing.Color"/> into a <see cref="T:System.UInt32"/> that can be used for native methods.
+            </summary>
+            <param name="color"></param>
+            <returns></returns>
+        </member>
+        <member name="T:CC.Utilities.Encryption">
+            <summary>
+            Provides simple <see cref="T:System.Security.Cryptography.RijndaelManaged"/> Decrypt() and Encrypt() methods using a static implementation of <see cref="T:CC.Utilities.SimpleEncryption"/>
+            </summary>
+        </member>
+        <member name="M:CC.Utilities.Encryption.Decrypt(System.String,System.String)">
+            <summary>
+            Decrypts the encrypted text
+            </summary>
+            <param name="encryptedText">The encrypted text to decrypt</param>
+            <param name="password">The password used to decrypt the text</param>
+            <returns>The plain text decrypted</returns>
+        </member>
+        <member name="M:CC.Utilities.Encryption.Encrypt(System.String,System.String)">
+            <summary>
+            Encrypts the plain text
+            </summary>
+            <param name="plainText">The plain text to encrypt</param>
+            <param name="password">The password used to encrypt the text</param>
+            <returns>The encrypted text</returns>
+        </member>
+        <member name="T:CC.Utilities.Interop.CFE">
+            <summary>
+            Defines constants used in a <see cref="T:CC.Utilities.Interop.CHARFORMAT"/> or <see cref="T:CC.Utilities.Interop.CHARFORMAT2"/> dwEffects
+            </summary>
+        </member>
+        <member name="T:CC.Utilities.Interop.CFM">
+            <summary>
+            Defines constants used in a <see cref="T:CC.Utilities.Interop.CHARFORMAT"/> or <see cref="T:CC.Utilities.Interop.CHARFORMAT2"/> dwMask
+            </summary>
+        </member>
+        <member name="T:CC.Utilities.Interop.TEXTMODE">
+            <summary>
+            enum for use with EM_GET/SETTEXTMODE
+            </summary>
+        </member>
+        <member name="T:CC.Utilities.Interop.CFU">
+            <summary>
+            <see cref="T:CC.Utilities.Interop.CHARFORMAT"/>/<see cref="T:CC.Utilities.Interop.CHARFORMAT2"/> underline constants
+            </summary>
+        </member>
+        <member name="T:CC.Utilities.Interop.ECO">
+            <summary>
+            Edit control options
+            </summary>
+        </member>
+        <member name="T:CC.Utilities.Interop.ECOOP">
+            <summary>
+            Edit control options operation
+            </summary>
+        </member>
+        <member name="T:CC.Utilities.Interop.ES">
+            <summary>
+            Edit style constants
+            </summary>
+        </member>
+        <member name="T:CC.Utilities.Interop.PFA">
+            <summary>
+            Alignent contstants for <see cref="T:CC.Utilities.Interop.PARAFORMAT"/>/<see cref="T:CC.Utilities.Interop.PARAFORMAT2"/>
+            </summary>
+        </member>
+        <member name="T:CC.Utilities.Interop.PFM">
+            <summary>
+            Defines constants used in a <see cref="T:CC.Utilities.Interop.PARAFORMAT"/> or <see cref="T:CC.Utilities.Interop.PARAFORMAT2"/> dwMask
+            </summary>
+        </member>
+        <member name="T:CC.Utilities.Interop.PFN">
+            <summary>
+            Defines constants used in a <see cref="T:CC.Utilities.Interop.PARAFORMAT"/> or <see cref="T:CC.Utilities.Interop.PARAFORMAT2"/> wNumbering
+            </summary>
+        </member>
+        <member name="T:CC.Utilities.Interop.SCF">
+            <summary>
+            Selection related constants
+            </summary>
+        </member>
+        <member name="T:CC.Utilities.ArgumentParser">
+            <summary>
+            <see cref="T:CC.Utilities.ArgumentParser"/> allows the user to easily parse command line arguments.
+            </summary>
+        </member>
+        <member name="M:CC.Utilities.ArgumentParser.#ctor">
+            <summary>
+            Creates a new <see cref="T:CC.Utilities.ArgumentParser"/>.
+            </summary>
+        </member>
+        <member name="M:CC.Utilities.ArgumentParser.#ctor(System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Creates a new <see cref="T:CC.Utilities.ArgumentParser"/>.
+            </summary>
+            <param name="prefixes">The list of valid prefixes.</param>
+        </member>
+        <member name="M:CC.Utilities.ArgumentParser.#ctor(System.Boolean)">
+            <summary>
+            Creates a new <see cref="T:CC.Utilities.ArgumentParser"/>.
+            </summary>
+            <param name="requirePrefix">True if valid <see cref="T:CC.Utilities.Argument"/>s require a prefix.</param>
+        </member>
+        <member name="M:CC.Utilities.ArgumentParser.#ctor(System.Collections.Generic.IEnumerable{System.String},System.Boolean)">
+            <summary>
+            Creates a new <see cref="T:CC.Utilities.ArgumentParser"/>.
+            </summary>
+            <param name="prefixes">The list of valid prefixes.</param>
+            <param name="requirePrefix">True if valid <see cref="T:CC.Utilities.Argument"/>s require a prefix.</param>
+        </member>
+        <member name="M:CC.Utilities.ArgumentParser.#ctor(System.Collections.Generic.IEnumerable{System.String},System.Boolean,System.Collections.Generic.IEnumerable{CC.Utilities.Argument})">
+            <summary>
+            Creates a new <see cref="T:CC.Utilities.ArgumentParser"/>.
+            </summary>
+            <param name="prefixes">The list of valid prefixes.</param>
+            <param name="requirePrefix">True if valid <see cref="T:CC.Utilities.Argument"/>s require a prefix.</param>
+            <param name="allowedArguments">The list of allowed <see cref="T:CC.Utilities.Argument"/>s.</param>
+        </member>
+        <member name="M:CC.Utilities.ArgumentParser.AddAllowedArgument(System.String)">
+            <summary>
+            Add an allowed <see cref="T:CC.Utilities.Argument"/>.
+            </summary>
+            <param name="argumentName">The argument name.</param>
+        </member>
+        <member name="M:CC.Utilities.ArgumentParser.AddAllowedArgument(CC.Utilities.Argument)">
+            <summary>
+            Add an allowed <see cref="T:CC.Utilities.Argument"/>.
+            </summary>
+            <param name="argument">The <see cref="T:CC.Utilities.Argument"/>.</param>
+        </member>
+        <member name="M:CC.Utilities.ArgumentParser.Parse(System.String[])">
+            <summary>
+            Parse the array of command line arguments.
+            </summary>
+            <param name="args">The array of command line arguments.</param>
+        </member>
+        <member name="M:CC.Utilities.ArgumentParser.ToString">
+            <summary>
+            Returns this <see cref="P:CC.Utilities.ArgumentParser.ParsedArguments"/> in a human readable format.
+            </summary>
+            <returns>A <see cref="T:System.String"/>.</returns>
+        </member>
+        <member name="M:CC.Utilities.ArgumentParser.ToString(System.Boolean)">
+            <summary>
+            Returns this <see cref="P:CC.Utilities.ArgumentParser.ParsedArguments"/> in a human readable format.
+            </summary>
+            <param name="detailed">True if the output should be detailed.</param>
+            <returns>A <see cref="T:System.String"/>.</returns>
+        </member>
+        <member name="P:CC.Utilities.ArgumentParser.AllowedArguments">
+            <summary>
+            The list of allowed <see cref="T:CC.Utilities.Argument"/>s
+            </summary>
+        </member>
+        <member name="P:CC.Utilities.ArgumentParser.ParsedArguments">
+            <summary>
+            The <see cref="T:CC.Utilities.Argument"/>s parsed from the <see cref="M:CC.Utilities.ArgumentParser.Parse(System.String[])"/> method.
+            </summary>
+        </member>
+        <member name="P:CC.Utilities.ArgumentParser.Prefixes">
+            <summary>
+            The list of valid prefixes.
+            </summary>
+        </member>
+        <member name="P:CC.Utilities.ArgumentParser.RequirePrefix">
+            <summary>
+            True if valid <see cref="T:CC.Utilities.Argument"/>s require a prefix.
+            </summary>
+        </member>
+        <member name="P:CC.Utilities.ArgumentParser.CommonPrefixes">
+            <summary>
+            A list of common prefixes.
+            </summary>
+        </member>
+        <member name="T:CC.Utilities.Interop.EM">
+            <summary>
+            Event Message constants
+            </summary>
+        </member>
+        <member name="T:CC.Utilities.Interop.FW">
+            <summary>
+            Font weights
+            </summary>
+        </member>
+        <member name="T:CC.Utilities.Interop.SB">
+            <summary>
+            Scrollbar constants
+            </summary>
+        </member>
+        <member name="T:CC.Utilities.Interop.SIF">
+            <summary>
+            SCROLLINFO fMask constants
+            </summary>
+        </member>
+        <member name="T:CC.Utilities.Interop.WM">
+            <summary>
+            Window messages
+            </summary>
+        </member>
+        <member name="M:CC.Utilities.FontBuilder.FromString(System.String)">
+            <summary>
+            Creates a <see cref="T:System.Drawing.Font"/> from a string generated by either <see cref="T:System.Drawing.Font"/>.ToString() or <see cref="T:System.Drawing.Font"/>.ToStringEx()
+            </summary>
+            <param name="fontString">The string to build the <see cref="T:System.Drawing.Font"/> from</param>
+            <returns>A <see cref="T:System.Drawing.Font"/> from the supplied string</returns>
+        </member>
+        <member name="M:CC.Utilities.FontExtensions.ToStringEx(System.Drawing.Font)">
+            <summary>
+            Extends the <see cref="M:System.Drawing.Font.ToString"/>  method for parameters that are not included
+            </summary>
+            <param name="font">The <see cref="T:System.Drawing.Font"/> to convert to a string</param>
+            <returns>Returns a human readable representation of this <see cref="T:System.Drawing.Font"/></returns>
+        </member>
+        <member name="T:CC.Utilities.Utilities">
+            <summary>
+            General utility methods that don't seem to fit under another namespace
+            </summary>
+        </member>
+        <member name="M:CC.Utilities.Utilities.CaptureScreen">
+            <summary>
+            Captures an <see cref="T:System.Drawing.Image"/> of the screen
+            </summary>
+            <returns>An <see cref="T:System.Drawing.Image"/> of the screen</returns>
+        </member>
+        <member name="M:CC.Utilities.Utilities.CaptureWindow(System.IntPtr)">
+            <summary>
+            Captures an <see cref="T:System.Drawing.Image"/> of the specified window
+            </summary>
+            <param name="handle">The handle of the window to capture</param>
+            <returns>An <see cref="T:System.Drawing.Image"/> of the specified window</returns>
+        </member>
+        <member name="T:CC.Utilities.Logging">
+            <summary>
+            A static class responsible for logging
+            </summary>
+        </member>
+        <member name="M:CC.Utilities.Logging.EnterMethod(System.String)">
+            <summary>
+            Log a message when you enter a method
+            </summary>
+            <param name="methodName">The name of the method</param>
+            <returns>The DateTime this method was called</returns>
+        </member>
+        <member name="M:CC.Utilities.Logging.ExitMethod(System.String,System.DateTime)">
+            <summary>
+            Log a message when you exit a method
+            </summary>
+            <param name="methodName">The name of the method</param>
+            <param name="enterTime">The DateTime that EnterMethod() was called</param>
+        </member>
+        <member name="M:CC.Utilities.Logging.LogException(System.Exception)">
+            <summary>
+            Log a message that displays the contents of an exception
+            </summary>
+            <param name="exception">The System.Exception to log</param>
+        </member>
+        <member name="M:CC.Utilities.Logging.LogMessage(System.String)">
+            <summary>
+            Log a message
+            </summary>
+            <param name="message">The message to log</param>
+        </member>
+        <member name="M:CC.Utilities.Logging.LogMessage(System.String,System.Object[])">
+            <summary>
+            Log a message
+            </summary>
+            <param name="message">The message format</param>
+            <param name="args">The arguments used in the message format</param>
+        </member>
+        <member name="T:CC.Utilities.TimeSpanExtensions">
+            <summary>
+            Contains extension methods for <see cref="T:System.TimeSpan"/>
+            </summary>
+        </member>
+        <member name="M:CC.Utilities.TimeSpanExtensions.ToFriendlyString(System.TimeSpan,System.Boolean)">
+            <summary>
+            Converts a TimeSpan to a formatted string
+            </summary>
+            <param name="timeSpan">The TimeSpan to convert</param>
+            <param name="showMilliseconds">Whether or not to display milliseconds</param>
+            <returns>A formatted string</returns>
+        </member>
+        <member name="T:CC.Utilities.DateTimeExtensions">
+            <summary>
+            Contains extension methods for <see cref="T:System.DateTime"/>
+            </summary>
+        </member>
+        <member name="M:CC.Utilities.DateTimeExtensions.ToCommonDateString(System.DateTime)">
+            <summary>
+            Returns a <see cref="T:System.DateTime"/> <see cref="T:System.String"/> using ToString("MM/dd/yyyy")
+            </summary>
+            <param name="dateTime">The <see cref="T:System.DateTime"/> to work with</param>
+            <returns>A <see cref="T:System.String"/></returns>
+        </member>
+        <member name="M:CC.Utilities.DateTimeExtensions.ToEndDate(System.DateTime)">
+            <summary>
+            Returns a <see cref="T:System.DateTime"/> with a time of 23:59:59.999
+            </summary>
+            <param name="dateTime">The <see cref="T:System.DateTime"/> to work with</param>
+            <returns>A <see cref="T:System.String"/></returns>
+        </member>
+        <member name="M:CC.Utilities.DateTimeExtensions.ToFileDateString(System.DateTime)">
+            <summary>
+            Returns a <see cref="T:System.DateTime"/> <see cref="T:System.String"/> using ToString("MM/dd/yyyy")
+            </summary>
+            <param name="dateTime">The <see cref="T:System.DateTime"/> to work with</param>
+            <returns>A <see cref="T:System.String"/></returns>
+        </member>
+        <member name="M:CC.Utilities.DateTimeExtensions.ToStartDate(System.DateTime)">
+            <summary>
+            Returns a <see cref="T:System.DateTime"/> with a time of 00:00:00.000
+            </summary>
+            <param name="dateTime">The <see cref="T:System.DateTime"/> to work with</param>
+            <returns>A <see cref="T:System.String"/></returns>
+        </member>
+        <member name="T:CC.Utilities.SimpleEncryption">
+            <summary>
+            Provides simple <see cref="T:System.Security.Cryptography.RijndaelManaged"/> Decrypt() and Encrypt() methods. 
+            <see cref="T:CC.Utilities.SimpleEncryption"/> is preferred over the static <see cref="T:CC.Utilities.Encryption"/>
+            class if you will be performing many Decrypt/Encrypt calls using the same password.
+            </summary>
+        </member>
+        <member name="M:CC.Utilities.SimpleEncryption.#ctor(System.String)">
+            <summary>
+            Creates a new <see cref="T:CC.Utilities.SimpleEncryption"/> instance.
+            </summary>
+            <param name="password">The password used to Decrypt/Encrypt data</param>
+        </member>
+        <member name="M:CC.Utilities.SimpleEncryption.Decrypt(System.String)">
+            <summary>
+            Decrypts the encrypted text
+            </summary>
+            <param name="encryptedText">The encrypted text to decrypt</param>
+            <returns>The plain text decrypted</returns>
+        </member>
+        <member name="M:CC.Utilities.SimpleEncryption.Encrypt(System.String)">
+            <summary>
+            Encrypts the plain text
+            </summary>
+            <param name="plainText">The plain text to encrypt</param>
+            <returns>The encrypted text</returns>
+        </member>
+        <member name="T:CC.Utilities.Drawing.DoubleBufferedGraphics">
+            <summary>
+            Provides a double buffered <see cref="P:CC.Utilities.Drawing.DoubleBufferedGraphics.Graphics"/> object.
+            </summary>
+        </member>
+        <member name="M:CC.Utilities.Drawing.DoubleBufferedGraphics.#ctor">
+            <summary>
+            Creates a new <see cref="T:CC.Utilities.Drawing.DoubleBufferedGraphics"/>.
+            </summary>
+        </member>
+        <member name="M:CC.Utilities.Drawing.DoubleBufferedGraphics.#ctor(System.Int32,System.Int32)">
+            <summary>
+            Creates a new <see cref="T:CC.Utilities.Drawing.DoubleBufferedGraphics"/> using the specified width and height.
+            </summary>
+            <param name="width">The width</param>
+            <param name="height">The height</param>
+        </member>
+        <member name="M:CC.Utilities.Drawing.DoubleBufferedGraphics.Dispose">
+            <summary>
+            Release all resources used by this <see cref="T:CC.Utilities.Drawing.DoubleBufferedGraphics"/>.
+            </summary>
+        </member>
+        <member name="M:CC.Utilities.Drawing.DoubleBufferedGraphics.Initialize(System.Int32,System.Int32)">
+            <summary>
+            Initialize this <see cref="T:CC.Utilities.Drawing.DoubleBufferedGraphics"/>.
+            </summary>
+            <param name="width"></param>
+            <param name="height"></param>
+        </member>
+        <member name="M:CC.Utilities.Drawing.DoubleBufferedGraphics.Render(System.Drawing.Graphics)">
+            <summary>
+            Draw this <see cref="T:CC.Utilities.Drawing.DoubleBufferedGraphics"/> to the supplied <see cref="P:CC.Utilities.Drawing.DoubleBufferedGraphics.Graphics"/>.
+            </summary>
+            <param name="graphics"></param>
+        </member>
+        <member name="M:CC.Utilities.Drawing.DoubleBufferedGraphics.Reset">
+            <summary>
+            Reset this <see cref="T:CC.Utilities.Drawing.DoubleBufferedGraphics"/>.
+            </summary>
+        </member>
+        <member name="M:CC.Utilities.Drawing.DoubleBufferedGraphics.SetBackgroundImage(System.Drawing.Image)">
+            <summary>
+            This method is the preferred method of drawing a background image.
+            It is *MUCH* faster than any of the Graphics.DrawImage() methods.
+            Warning: The memory image and the <see cref="P:CC.Utilities.Drawing.DoubleBufferedGraphics.Graphics"/> object
+            will be reset after calling this method. This should be your first
+            drawing operation.
+            </summary>
+            <param name="image">The image to draw.</param>
+        </member>
+        <member name="P:CC.Utilities.Drawing.DoubleBufferedGraphics.Graphics">
+            <summary>
+            The <see cref="P:CC.Utilities.Drawing.DoubleBufferedGraphics.Graphics"/> object to draw to.
+            </summary>
+        </member>
+        <member name="P:CC.Utilities.Drawing.DoubleBufferedGraphics.Height">
+            <summary>
+            The height.
+            </summary>
+        </member>
+        <member name="P:CC.Utilities.Drawing.DoubleBufferedGraphics.Initialized">
+            <summary>
+            True if the <see cref="T:CC.Utilities.Drawing.DoubleBufferedGraphics"/> is initialized.
+            </summary>
+        </member>
+        <member name="P:CC.Utilities.Drawing.DoubleBufferedGraphics.Width">
+            <summary>
+            The width.
+            </summary>
+        </member>
+        <member name="T:CC.Utilities.ImageExtensions">
+            <summary>
+            Contains extension methods for <see cref="T:System.Drawing.Image"/>
+            </summary>
+        </member>
+        <member name="M:CC.Utilities.ImageExtensions.AdjustBrightness(System.Drawing.Image,System.Single)">
+            <summary>
+            Creates a new <see cref="T:System.Drawing.Image"/> with an adjusted brightness.
+            </summary>
+            <param name="image">The <see cref="T:System.Drawing.Image"/> to adjust brightness</param>
+            <param name="brightness">The brightness value ranging from -1.0 (decrease brightness) to 1.0 (increase brightness)</param>
+            <returns>A new <see cref="T:System.Drawing.Image"/> with an adjusted brightness</returns>
+        </member>
+        <member name="M:CC.Utilities.ImageExtensions.AdjustContrast(System.Drawing.Image,System.Single)">
+            <summary>
+            Creates a new <see cref="T:System.Drawing.Image"/> with an adjusted contrast.
+            </summary>
+            <param name="image">The <see cref="T:System.Drawing.Image"/> to adjust contrast</param>
+            <param name="contrast">The contrast value ranging from -1.0 (decrease contrast) to 1.0 (increase contrast)</param>
+            <returns>A new <see cref="T:System.Drawing.Image"/> with an adjusted contrast</returns>
+        </member>
+        <member name="M:CC.Utilities.ImageExtensions.GetDisabledImage(System.Drawing.Image)">
+            <summary>
+            Creates a new <see cref="T:System.Drawing.Image"/> using <see cref="M:System.Windows.Forms.ControlPaint.DrawImageDisabled(System.Drawing.Graphics,System.Drawing.Image,System.Int32,System.Int32,System.Drawing.Color)"/> and <see cref="M:CC.Utilities.ImageExtensions.AdjustBrightness(System.Drawing.Image,System.Single)"/> with a brightness value of 0.215f.
+            </summary>
+            <param name="image">The <see cref="T:System.Drawing.Image"/> to disable</param>
+            <returns>A disabled <see cref="T:System.Drawing.Image"/></returns>
+        </member>
+        <member name="M:CC.Utilities.ImageExtensions.GetDisabledImage(System.Drawing.Image,System.Single)">
+            <summary>
+            Creates a new <see cref="T:System.Drawing.Image"/> using <see cref="M:System.Windows.Forms.ControlPaint.DrawImageDisabled(System.Drawing.Graphics,System.Drawing.Image,System.Int32,System.Int32,System.Drawing.Color)"/> and <see cref="M:CC.Utilities.ImageExtensions.AdjustBrightness(System.Drawing.Image,System.Single)"/>.
+            </summary>
+            <param name="image">The <see cref="T:System.Drawing.Image"/> to disable</param>
+            <param name="brightness">The brightness value ranging from -1.0 (decrease brightness) to 1.0 (increase brightness)</param>
+            <returns>A disabled <see cref="T:System.Drawing.Image"/></returns>
+        </member>
+        <member name="M:CC.Utilities.ImageExtensions.GetRectangle(System.Drawing.Image)">
+            <summary>
+            Gets a rectangle that corresponds to the height and width of the <see cref="T:System.Drawing.Image"/>
+            </summary>
+            <param name="image">The <see cref="T:System.Drawing.Image"/> to work with</param>
+            <returns>A <see cref="T:System.Drawing.Rectangle"/> that corresponds to the height and width of the <see cref="T:System.Drawing.Image"/></returns>
+        </member>
+        <member name="T:CC.Utilities.ObjectExtensions">
+            <summary>
+            Contains extension methods for <see cref="T:System.Object"/>
+            </summary>
+        </member>
+        <member name="M:CC.Utilities.ObjectExtensions.ToXml(System.Object)">
+            <summary>
+            Converts an object to a serialized xml string
+            </summary>
+            <param name="o">The <see cref="T:System.Object"/> to serialize</param>
+            <returns></returns>
+        </member>
+        <member name="T:CC.Utilities.Interop.InteropConvert">
+            <summary>
+            A collection of conversion methods for native interop methods.
+            </summary>
+        </member>
+        <member name="M:CC.Utilities.Interop.InteropConvert.CFE_ToFontStyle(CC.Utilities.Interop.CFE)">
+            <summary>
+            Converts a <see cref="T:CC.Utilities.Interop.CFE"/> constant to a <see cref="T:System.Drawing.FontStyle"/>
+            </summary>
+            <param name="dwEffects">The <see cref="T:CC.Utilities.Interop.CFE"/> to convert</param>
+            <returns>A <see cref="T:System.Drawing.FontStyle"/></returns>
+        </member>
+        <member name="M:CC.Utilities.Interop.InteropConvert.CFM_ToFontStyle(CC.Utilities.Interop.CFM)">
+            <summary>
+            Converts a <see cref="T:CC.Utilities.Interop.CFM"/> constant to a <see cref="T:System.Drawing.FontStyle"/>
+            </summary>
+            <param name="dwMask">The <see cref="T:CC.Utilities.Interop.CFM"/> to convert</param>
+            <returns>A <see cref="T:System.Drawing.FontStyle"/></returns>
+        </member>
+        <member name="M:CC.Utilities.Interop.InteropConvert.FontStyleTo_CFE(System.Drawing.FontStyle)">
+            <summary>
+            Converts a <see cref="T:System.Drawing.FontStyle"/> to <see cref="T:CC.Utilities.Interop.CFE"/> constant.
+            </summary>
+            <param name="fontStyle">The <see cref="T:System.Drawing.FontStyle"/> to convert.</param>
+            <returns>A <see cref="T:CC.Utilities.Interop.CFE"/> constant</returns>
+        </member>
+        <member name="M:CC.Utilities.Interop.InteropConvert.FontStyleTo_CFM(System.Drawing.FontStyle)">
+            <summary>
+            Converts a <see cref="T:System.Drawing.FontStyle"/> to <see cref="T:CC.Utilities.Interop.CFM"/> constant.
+            </summary>
+            <param name="fontStyle">The <see cref="T:System.Drawing.FontStyle"/> to convert.</param>
+            <returns>A <see cref="T:CC.Utilities.Interop.CFM"/> constant</returns>
+        </member>
+        <member name="M:CC.Utilities.Interop.InteropConvert.HorizontalAlignmentTo_PFA(System.Windows.Forms.HorizontalAlignment)">
+            <summary>
+            Converts a <see cref="T:System.Windows.Forms.HorizontalAlignment"/> to <see cref="T:CC.Utilities.Interop.PFA"/> constant.
+            </summary>
+            <param name="alignment">The <see cref="T:System.Windows.Forms.HorizontalAlignment"/> to convert.</param>
+            <returns>A <see cref="T:CC.Utilities.Interop.PFA"/> constant.</returns>
+        </member>
+        <member name="M:CC.Utilities.Interop.InteropConvert.PFA_ToHorizontalAlignment(CC.Utilities.Interop.PFA)">
+            <summary>
+            Converts a <see cref="T:CC.Utilities.Interop.PFA"/> constant to a <see cref="T:System.Windows.Forms.HorizontalAlignment"/>.
+            </summary>
+            <param name="pfa">The <see cref="T:CC.Utilities.Interop.PFA"/> to convert.</param>
+            <returns>A <see cref="T:System.Windows.Forms.HorizontalAlignment"/></returns>
+        </member>
+    </members>
+</doc>
