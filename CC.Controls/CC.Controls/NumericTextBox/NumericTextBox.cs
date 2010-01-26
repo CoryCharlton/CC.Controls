@@ -6,9 +6,9 @@ using CC.Utilities;
 namespace CC.Controls
 {
     /// <summary>
-    /// Respresents a <see cref="TextBox"/> that only accepts numeric input.
+    /// Respresents a <see cref="WatermarkTextBox"/> that only accepts numeric input.
     /// </summary>
-    public partial class NumericTextBox : TextBox
+    public partial class NumericTextBox : WatermarkTextBox
     {
         #region Constructor
         /// <summary>
@@ -18,7 +18,7 @@ namespace CC.Controls
         {
             // Default values...
             SelectAllOnEnter = true;
-
+            
             InitializeComponent();
         }
         #endregion
